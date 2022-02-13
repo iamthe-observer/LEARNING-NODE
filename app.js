@@ -27,7 +27,19 @@ const fs = require('fs');
 const files = fs.readdirSync("./")
     // console.log(files);
 
-const files2 = fs.readdir('./', (err, files) => {
-    if (err) console.log("error", err);
-    else console.log(('results', files));
+// const files2 = fs.readdir('./', (err, files) => {
+//     if (err) console.log("error", err);
+//     else console.log(('results', files));
+// })
+
+
+// Events
+const Log = require('./logger')
+const logger = new Log()
+
+// Register a listener
+logger.on("messageLogged", (arg) => {
+    console.log('listener called', arg);
 })
+
+logger.log('message')
