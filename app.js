@@ -66,3 +66,75 @@
 // server.listen(3000)
 
 // console.log('listening on port 3000...');
+
+
+// require('./module')
+
+// still going back to the os module
+// const os = require("os")
+
+// const currentOS = {
+//     name: os.type(),
+//     totalMem: os.totalmem(),
+//     freeMem: os.freemem(),
+// }
+// console.log("🚀 ~ file: app.js ~ line 80 ~ currentOS", currentOS)
+
+
+// path again
+// const path = require('path')
+
+// const filePath = path.join('/content/', 'contents.txt')
+// console.log("🚀 ~ file: app.js ~ line 89 ~ filePath", filePath)
+
+// const absolutePath = path.resolve(__dirname, 'content', 'content.txt')
+// console.log("🚀 ~ file: app.js ~ line 91 ~ absolutePath", absolutePath)
+
+
+
+// file system (FS)
+const {
+    readFileSync,
+    writeFileSync,
+    writeFile,
+    readFile,
+} = require('fs')
+    // console.log('start');
+
+// sync
+// const first = readFileSync('./content/first.txt', 'utf8')
+// const second = readFileSync('./content/second.txt', 'utf8')
+
+// writeFileSync("./content/result-sync.text", `Here is the result: ${first} , ${second}`, {
+//     flag: 'a'
+// })
+
+// console.log('done with task');
+// console.log('starting the next one');
+
+
+
+// async
+console.log("start");
+const first = readFile('./content/first.txt', 'utf8', (err, result) => {
+    if (err) {
+        console.log(err)
+        return
+    }
+    const first = result;
+    readFile('./content/second.txt', 'utf8', (err, result) => {
+        if (err) {
+            console.log(err)
+            return
+        }
+        const second = result;
+        writeFile('./content/result-sync.txt', `here is the result = ${first}, ${second}`, (err, result) => {
+            if (err) {
+                console.log(err);
+                return
+            }
+            console.log('done with the task');
+        })
+    })
+})
+console.log('starting next file');

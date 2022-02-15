@@ -12,3 +12,19 @@
 // }
 
 // module.exports = Logger
+
+
+// alternative analysis
+// module.exports.items = ['item1', 'item2']
+
+// const person = {
+//     name: 'bob'
+// }
+
+// module.exports.singlePerson = person
+
+function addValues(num1, num2) {
+    console.log(`the sum is ${num1 + num2}`);
+}
+
+module.exports = addValues
