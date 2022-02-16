@@ -115,26 +115,47 @@ const {
 
 
 // async
-console.log("start");
-const first = readFile('./content/first.txt', 'utf8', (err, result) => {
-    if (err) {
-        console.log(err)
-        return
-    }
-    const first = result;
-    readFile('./content/second.txt', 'utf8', (err, result) => {
-        if (err) {
-            console.log(err)
-            return
-        }
-        const second = result;
-        writeFile('./content/result-sync.txt', `here is the result = ${first}, ${second}`, (err, result) => {
-            if (err) {
-                console.log(err);
-                return
-            }
-            console.log('done with the task');
-        })
-    })
-})
-console.log('starting next file');
+// console.log("start");
+// const first = readFile('./content/first.txt', 'utf8', (err, result) => {
+//     if (err) {
+//         console.log(err)
+//         return
+//     }
+//     const first = result;
+//     readFile('./content/second.txt', 'utf8', (err, result) => {
+//         if (err) {
+//             console.log(err)
+//             return
+//         }
+//         const second = result;
+//         writeFile('./content/result-sync.txt', `here is the result = ${first}, ${second}`, (err, result) => {
+//             if (err) {
+//                 console.log(err);
+//                 return
+//             }
+//             console.log('done with the task');
+//         })
+//     })
+// })
+// console.log('starting next task');
+
+
+// http module
+// const http = require('http')
+
+// const server = http.createServer((req, res) => {
+//     if (req.url == './') {
+//         res.end('hello welcome to the page')
+//     }
+//     if (req.url === '/about') {
+//         res.end('here is our short history ')
+//     }
+
+//     res.end(`
+//     <h1>oops!</h1>
+//     <p>we cant find the page you are looking for</p>
+//     <a href ='/'>back home</a>
+//     `)
+// })
+
+// server.listen(5000)

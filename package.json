@@ -1,0 +1,24 @@
+{
+    "name": "learning-node",
+    "version": "1.0.0",
+    "description": "MY PROGRESS WHILES LEARNING THE FUNDERMENTALS OF NODE.JS",
+    "main": "app.js",
+    "dependencies": {
+        "bootstrap": "^5.1.3",
+        "lodash": "^4.17.21"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/iamthe-observer/LEARNING-NODE.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/iamthe-observer/LEARNING-NODE/issues"
+    },
+    "homepage": "https://github.com/iamthe-observer/LEARNING-NODE#readme"
+}
