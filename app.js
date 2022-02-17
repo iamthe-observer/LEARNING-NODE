@@ -93,13 +93,16 @@
 
 
 // file system (FS)
-const {
-    readFileSync,
-    writeFileSync,
-    writeFile,
-    readFile,
-} = require('fs')
-    // console.log('start');
+// const {
+//     error
+// } = require('console')
+// const {
+//     readFileSync,
+//     writeFileSync,
+//     writeFile,
+//     readFile,
+// } = require('fs')
+// console.log('start');
 
 // sync
 // const first = readFileSync('./content/first.txt', 'utf8')
@@ -159,3 +162,131 @@ const {
 // })
 
 // server.listen(5000)
+
+
+// Express JS
+// Event Loop
+// synchronous
+// const {
+//     readFile
+// } = require('fs')
+// console.log('started the first task');
+// readFile('./content/first.txt', 'utf8', (err, result) => {
+//     if (err) {
+//         console.log(err);
+//         return
+//     }
+//     console.log(result);
+//     console.log('completed first task');
+// })
+// console.log(("starting next task"));
+
+
+// console.log('first');
+// setTimeout(() => {
+//     console.log('second');
+// }, 0)
+// console.log('third');
+
+// async
+// const {
+//     readFile,
+//     writeFile
+// } = require('fs')
+// const {
+//     reject
+// } = require('lodash')
+// const {
+//     resolve
+// } = require('path')
+
+// const util = require('util')
+
+// const readFilePromise = util.promisify(readFile)
+// const writeFilePromise = util.promisify(writeFile)
+
+// const start = async() => {
+//     try {
+//         const first = await readFilePromise('./content/first.txt', 'utf8')
+//         const second = await readFilePromise('./content/second.txt', 'utf8')
+//         await writeFilePromise('./content/result-mind-grenade.txt', `bread and butter just like ${first}, and ${second}`)
+//         console.log(first);
+//         console.log(second);
+//     } catch (e) {
+//         console.log(e);
+//     }
+// }
+
+// start()
+
+// const getTextPromise = (path) => {
+//     return new Promise((res, rej) => {
+//         readFile(path, 'utf8', (err, data) => {
+//             if (err) {
+//                 rej(err)
+//             } else {
+//                 res(data)
+//             }
+//         })
+//     })
+// }
+
+// getTextPromise('./content/first.txt')
+//     .then(res => console.log(res))
+//     .catch(err => console.log(err))
+
+
+
+// EVENTS
+// const EventEmitter = require('events');
+var events = require('events');
+var eventEmitter = new events.EventEmitter();
+// eventEmitter.on('my_event', (name, id) => {
+//     console.log(`data received user: ${name} ${id} successfully.`);
+// });
+// eventEmitter.on('my_event', () => {
+//     console.log('info received successfully.');
+// });
+// eventEmitter.emit('my_event', 'james', 22);
+
+// const customerEmitter = new EventEmitter()
+// customerEmitter.on('response', () => {
+//     console.log('data recieved');
+// })
+
+
+// Event Emitter Http module
+
+// var http = require('http');
+const fs = require('fs');
+const {
+    writeFile
+} = require('fs/promises');
+// const util = require('util');
+
+// const server = http.createServer()
+// server.on('request', (req, res) => {
+//     res.end('why cant you accept objects')
+// })
+
+// server.listen(8081)
+
+// console.log('Server running at http://127.0.0.1:8081/');
+
+// STREAMS
+
+const stream = fs.createReadStream('./content/big.txt', {
+    highWaterMark: 90000,
+    encoding: 'utf8'
+})
+
+stream.on('data', (result) => {
+    console.log(result);
+    fs.writeFileSync('./content/second.txt', result, {
+        flag: 'a'
+    })
+})
+
+stream.on('error', (err) => {
+    console.log(err);
+})

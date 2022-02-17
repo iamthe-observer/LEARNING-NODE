@@ -4,11 +4,12 @@
     "description": "MY PROGRESS WHILES LEARNING THE FUNDERMENTALS OF NODE.JS",
     "main": "app.js",
     "dependencies": {
-        "bootstrap": "^5.1.3",
         "lodash": "^4.17.21"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon app.js",
+        "dev": "nodemon app.js"
     },
     "repository": {
         "type": "git",
@@ -20,5 +21,8 @@
     "bugs": {
         "url": "https://github.com/iamthe-observer/LEARNING-NODE/issues"
     },
-    "homepage": "https://github.com/iamthe-observer/LEARNING-NODE#readme"
+    "homepage": "https://github.com/iamthe-observer/LEARNING-NODE#readme",
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    }
 }

@@ -23,8 +23,18 @@
 
 // module.exports.singlePerson = person
 
-function addValues(num1, num2) {
-    console.log(`the sum is ${num1 + num2}`);
-}
+// function addValues(num1, num2) {
+//     console.log(`the sum is ${num1 + num2}`);
+// }
 
-module.exports = addValues
+// module.exports = addValues
+
+const {
+    writeFileSync
+} = require('fs')
+
+for (let i = 1; i < 1001; i++) {
+    writeFileSync('./content/big.txt', `the number is ${i}\n`, {
+        flag: "a"
+    })
+}
